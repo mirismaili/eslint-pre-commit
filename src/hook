@@ -4,7 +4,8 @@
 # Author: [S. Mahdi Mir-Ismaili](https://mirismaili.github.io)
 # Based on: https://gist.github.com/linhmtran168/2286aeafe747e78f53bf
 
-STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$")
+# --diff-filter=ACMRTUXB => all changes except "Delete". See: https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---diff-filterACDMRTUXB82308203
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMRTUXB | grep -E "\\.[jt]sx?$")
 
 if [[ "$STAGED_FILES" == "" ]]; then
 	exit 0
