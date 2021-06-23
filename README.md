@@ -12,15 +12,24 @@
 [![Stars](https://img.shields.io/github/stars/mirismaili/eslint-pre-commit-hook.svg?style=social)](https://github.com/mirismaili/eslint-pre-commit-hook)
 
 ```bash
-npm i eslint-pre-commit-hook
+npm i eslint-pre-commit-hook -D
 ```
 
 or:
 
 ```bash
-yarn add eslint-pre-commit-hook
+yarn add eslint-pre-commit-hook -D
 ```
 
 ## Usage
 
-*Just install it!*
+**There is no further requirements after installation.** It automatically sets `pre-commit` hook after installation
+(check `.git/hooks/pre-commit` to sure). But you can customize its behaviour by setting `eslintPreCommitBaseCommand`
+field in your `package.json` file:
+
+```json
+    "eslintPreCommitBaseCommand": "eslint --max-warnings=0"
+```
+
+The default value of the above option is `"eslint"`. Run `git commit ...` on some `js(x)` or `ts(x)` files and watch the
+console to see how this works.
